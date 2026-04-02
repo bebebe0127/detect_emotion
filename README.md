@@ -103,6 +103,37 @@ python src/inference.py
 
 > **Примечание:** `detect_emotion.py` использует модель `emotion_detection_model.h5`. Рекомендуется использовать `src/inference.py` с моделью `results/models/emotion_cnn.h5`.
 
+## Приложение с анализом окна видеозвонка (GUI)
+
+В папке `app/` есть GUI-приложение **Emotion Research**, которое умеет:
+- выбрать **окно** (Zoom/Teams/Discord и т.п.)
+- по кнопке **«Начать исследование»** захватывать кадры окна и распознавать эмоции
+- по кнопке **«Остановить»** показать итоговую сводку
+
+### Запуск из Python
+
+1) Установите зависимости приложения:
+
+```bash
+pip install -r requirements_app.txt
+```
+
+2) Запустите:
+
+```bash
+python -m app.main
+```
+
+> Для анализа требуется файл модели `results/models/emotion_cnn.h5`. Если его нет — сначала запустите обучение: `python src/train.py`.
+
+### Сборка в .exe (Windows)
+
+```powershell
+.\build_exe.ps1
+```
+
+Результат: `dist\EmotionResearch\EmotionResearch.exe`.
+
 ## Распознаваемые эмоции
 
 | Класс    | Описание     |

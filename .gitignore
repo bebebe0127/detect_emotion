@@ -1,31 +1,19 @@
-# Virtual environments
-.venv/
+# virtual environments
 venv/
-env/
+.venv_app/
 
-# Python
+# python cache
 __pycache__/
-*.py[cod]
-*.pyo
-*.egg-info/
-.eggs/
-dist/
-build/
+*.pyc
 
 # IDE
 .idea/
-.vscode/
-*.swp
-*.swo
 
-# Data (можно закомментировать, если нужно хранить обработанные данные)
-# data/processed/
-# data/raw/
+# results / builds
+results/
+build/
 
-# Model weights (большие файлы)
-results/models/*.h5
-*.h5
-
-# Jupyter
-.ipynb_checkpoints/
-*.ipynb
+# temp files
+~$*.docx
+*.docx
+*.md

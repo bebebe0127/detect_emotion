@@ -1,0 +1,12 @@
+PySide6
+mss
+pywin32
+pyinstaller
+tensorflow
+protobuf>=6.31.1,<7
+opencv-python
+numpy
+scikit-learn
+matplotlib
+seaborn
+

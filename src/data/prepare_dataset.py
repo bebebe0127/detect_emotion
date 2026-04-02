@@ -1,15 +1,21 @@
 import os
 import shutil
-import random
+import sys
+from pathlib import Path
+
 from sklearn.model_selection import train_test_split
+
+_SRC = Path(__file__).resolve().parents[1]
+if str(_SRC) not in sys.path:
+    sys.path.insert(0, str(_SRC))
+
+from utils.seed import DEFAULT_SEED, set_seed
 
 RAW_DIR = "src/data/raw/test"
 PROCESSED_DIR = "data/processed"
-SEED = 42
-
-random.seed(SEED)
 
 def prepare():
+    set_seed(DEFAULT_SEED)
     images = []
     labels = []
 
@@ -25,11 +31,11 @@ def prepare():
             labels.append(label)
 
     train_imgs, temp_imgs, train_lbls, temp_lbls = train_test_split(
-        images, labels, test_size=0.3, stratify=labels, random_state=SEED
+        images, labels, test_size=0.3, stratify=labels, random_state=DEFAULT_SEED
     )
 
     val_imgs, test_imgs, val_lbls, test_lbls = train_test_split(
-        temp_imgs, temp_lbls, test_size=0.5, stratify=temp_lbls, random_state=SEED
+        temp_imgs, temp_lbls, test_size=0.5, stratify=temp_lbls, random_state=DEFAULT_SEED
     )
 
     splits = {
